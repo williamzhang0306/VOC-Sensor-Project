@@ -1,5 +1,6 @@
 # VOC-Sensor-Project
-# Last Updated August 15 2022 by William Zhang
+
+Last Updated August 15 2022 by William Zhang
 
 -----------------------------------------------------------------------------------------------------------------------------------
 
