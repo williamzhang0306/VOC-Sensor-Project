@@ -1,11 +1,7 @@
 # VOC-Sensor-Project
 
 Last Updated August 15 2022 by William Zhang
-
------------------------------------------------------------------------------------------------------------------------------------
-
-In addition to python, this project requires matplotlib, scipy, numpy, and tkinter. 
-Some python scripts will only work on Windows and not MacOS simply because file paths are written differently.
+Feel free to contact me on slack or email (williamzhang@utexas.edu)
 
 -----------------------------------------------------------------------------------------------------------------------------------
 
@@ -14,7 +10,8 @@ ABOUT
 In this project I tried to generate sensor data for the temperature programmed desorption of VOC mixtures. I created a program
 (VOC-Sensor-Project/Data Combination/GasSensor.py) that implements a simple signal addition method to generate mixture data.
 
-This repo contains all the files I used/ am using in this project.
+In addition to python, this project requires matplotlib, scipy, numpy, and tkinter. 
+Some python scripts will only work on Windows and not MacOS simply because file paths are written differently.
 
 -----------------------------------------------------------------------------------------------------------------------------------
 
@@ -72,7 +69,6 @@ TECHNICAL OVERVIEW
 
 The program I created is essentially a UI that can access some tools access/manipulate three kinds of files. I call these three files
 (sensor) log files, source data files, and generated data files. 
-
 
 Sensor log files are files that contain all of the data outputed by the sensor. They contain time stamps, PID Voltage, peltier temperature,
 dilution ratio, etc. as well as sensor events, such as starting the heating ramp or maintaining a certain temperature.
