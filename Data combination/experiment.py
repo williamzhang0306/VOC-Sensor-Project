@@ -477,7 +477,7 @@ def save_all_experiments():
                 e.save_experiment()
 
 def filter_all_experiments():
-      directory = 'Main\Source Data'
+      directory = 'Data combination\Source Data'
       
       for i, filename in enumerate(os.listdir(directory)):
 
