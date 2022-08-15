@@ -1,9 +1,6 @@
 # Author: William Zhang
 # File description: UI to view and generate gas mixtures.
 
-print("application started!")
-input("return anything to continue")
-
 from uitools_new import *
 from tkinter import ttk
 from tkinter import messagebox
