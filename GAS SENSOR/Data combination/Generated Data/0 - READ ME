@@ -1,0 +1,26 @@
+The data in this folder is used to store Mixture objects
+
+File name formatting:
+The number that comes infront of a VOC name is the concentration of that VOC.
+The last number in the name (which should not be attached to any VOC) is the heating ramp rate.
+For example, 0.5Toulene_0.5IPA_1.5 is a mixture that is 50% Toulene and 50% IPA, and its ramp rate is 1.5 degrees C per second.
+
+
+File formatting:
+The first line contains all the names of the VOCs in the gas mixture
+The second line contains their respective concentrationsq
+The third line is the heating ramp rate
+The following lines contain the time elapsed, the respective delta PID voltage readings for each VOC, and the PID voltage reading for the mixture
+
+Example:
+
+[0] Benzaldehyde Benzene Oxylene  # names
+[1] 0.2 0.5 0.1                   # concentrations
+[2] 0.5                           # ramp rate measured in degrees (celsius/second)
+[3] 0.0 0.0 0.0 0.0 0.0           # data, time elapsed is the first column, mixture reading is the final column. Columns in between
+[4] 2.0 0.1 0.1 0.1 0.3           # are readings for the component gasses
+[5] 4.0 0.1 0.2 0.2 0.5
+[6] 6.0 0.1 0.1 0.4 0.6
+.
+.
+.

@@ -1,0 +1,100 @@
+// TEMPLATE SCRIPT - MODIFY VALUES MARKED AS // !_
+// Title: Sponge testing template
+// Author: William Winter
+// Date: 11/06/2019
+// Description:
+//    Setup: configure the OVG to the required temperature flowrate, set the pre-concentrator purging, leave overnight.
+//    This script:
+//      1. Sets the concentration VOC in the dilution stage [give the dilution stage time to settle]
+//      2. 10 min purge, hot  [clear the sponge, establish starting condition]
+//      3. 10 min sample, hot [step change is PID reference signal]
+//      4. Run the temperature profile [cold 5 min, ramp to hot @ 0.5 C/s, hot 10 min]
+//         The ramp is achieved by setting the Meerstetter control coarse ramp rate to an appropriate value to give a
+//         suitable ramp duration, in this case, 5 -> 70 in 2:30.  Therefore each step takes about 40 minutes
+//    These steps are repeated for concentrations 0 (purge gas), 50 PPB, 100 PPB, 500 PPB, 1000 PPB
+[
+// 1. ##################################################################################################################
+  {
+    "action": "set",
+    "targets": {
+      "vapour_generator": {
+        "temperature": 60,  // !_ set to appropriate temperature for source gas
+        "sample_flow": 70,  // !_ set to appropriate flowrate for dilution factor
+        "exhaust_flow": 29.605,  // !_ set so that exhaust_flow + sample_flow = target flowrate for source gas
+        "tube": "Limonene 13/07/2018"  // !_ set to source gas
+      },
+      "dilution_stage": {
+        "dilutant": 70,  // !_ set to achieve desired dilution
+        "output": 50,
+        "pressure": 2
+      },
+      "purge_flow": 50,
+      "valve": "Purge",
+      "peltier": 70  // !_ Hot temperature
+    }
+  },
+
+// 2. ##################################################################################################################
+  {
+    "action": "wait",
+    "duration": 600.0
+  },
+
+// 3. ##################################################################################################################
+  {
+    "action": "set",
+    "targets": {
+      "valve": "Sample"  // !_ Sample for non-zero concentrations, Purge for zero PPB
+    }
+  },
+  {
+    "action": "wait",
+    "duration": 600.0
+  },
+
+// 4. ##################################################################################################################
+  {
+    "action": "set",
+    "targets": {
+      "peltier": 5  // !_ Cold temperature
+    }
+  },
+  {
+	"action": "wait_for",
+    "test_interval": 1.0,
+    "consecutive_passes": 3,
+    "targets": {
+      "peltier": {"value": 5.0, "tol": 0.1}  // !_ Cold temperature +- 0.1C
+	  }
+  },
+  {
+    "action": "wait",
+    "duration": 300.0 
+  },
+  {
+    "action": "set",
+    "targets": {
+      "peltier": 70  // !_ Hot temperature
+    }
+  },
+  {
+	"action": "wait_for",
+    "test_interval": 1.0,
+    "consecutive_passes": 3,
+    "targets": {
+      "peltier": {"value": 70.0, "tol": 0.1}  // !_ Hot temperature +- 0.1C
+	  }
+  },
+  {
+    "action": "wait",
+    "duration": 600.0
+  },
+
+// Set purge gas ready for next run ####################################################################################
+  {
+    "action": "set",
+    "targets": {
+      "valve": "Purge"  // !_ Sample for non-zero concentrations, Purge for zero PPB
+    }
+  }
+]

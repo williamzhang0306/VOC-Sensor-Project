@@ -1,0 +1,9 @@
+2019-07-22 16:30:06,890 - WARNING - hardware.common.SHSerial - Timeout occurred during readline
+2019-07-22 16:30:07,880 - WARNING - hardware.common.SHSerial - Timeout occurred during readline
+2019-07-22 16:30:09,030 - WARNING - hardware.common.SHSerial - Timeout occurred during readline
+2019-07-22 16:30:10,850 - WARNING - hardware.sensorhut.combined_hardware_controller - Failed to open "humidity_sensor"
+2019-07-22 18:00:47,478 - WARNING - hardware.common.SHSerial - Timeout occurred during readline
+2019-07-22 18:00:47,478 - ERROR - hardware.valco.valco_controller - Timeout while reading version
+2019-07-22 19:16:07,002 - WARNING - hardware.antaris.antaris_sketch - Close: Failed to deactivate test mode
+2019-07-22 19:16:07,002 - WARNING - hardware.sensorhut.combined_hardware_controller - Failed to close "peltier"
+2019-07-22 19:16:07,002 - WARNING - hardware.sensorhut.combined_hardware_controller - Failed to close "spectrometer"

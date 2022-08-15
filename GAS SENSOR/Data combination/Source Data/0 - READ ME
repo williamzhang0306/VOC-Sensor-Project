@@ -1,0 +1,15 @@
+Data in this folder is used to load SingleVOC() objects.
+This data is taken from the sensor log data and represents one desorption curve.
+
+The first 3 lines are used for the experiment label.
+The rest of the lines are data points. The x and y values are space seperated.
+Below is the format for each file in this folder:
+
+[0] Name: 
+[1] heating ramp rate:
+[2] VOC concentration:
+[3] x0 y0
+[4] x1 y1
+[5] x2 y2
+[6] x3 y3
+...
